@@ -69,12 +69,12 @@ export const HeroOverlay: React.FC<HeroOverlayProps> = ({ scrollProgress }) => {
         }}
       />
 
-      {/* ── TOP atmospheric fade ── */}
+      {/* ── TOP atmospheric fade — stronger top mask to guard against navbar bleed ── */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(to bottom, #f0ede6dd 0%, transparent 20%, transparent 70%, #f0ede6dd 100%)',
+            'linear-gradient(to bottom, #f0ede6 0%, #f0ede6ee 10%, #f0ede6bb 18%, transparent 28%, transparent 70%, #f0ede6dd 100%)',
         }}
       />
 
@@ -161,21 +161,10 @@ export const HeroOverlay: React.FC<HeroOverlayProps> = ({ scrollProgress }) => {
         */}
         <div
           className="flex-1 flex flex-col justify-center overflow-hidden"
-          style={{ paddingTop: 84, paddingBottom: 130 }}
+          style={{ paddingTop: 120, paddingBottom: 130 }}
         >
           <div className="pl-5 sm:pl-12 lg:pl-20 xl:pl-24 pr-14 sm:pr-0 w-full sm:max-w-lg lg:max-w-xl pointer-events-auto">
 
-            {/* Badge — desktop only to avoid crowding mobile */}
-            <div
-              className={`hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full
-                          bg-white/80 backdrop-blur-sm border border-emerald-900/10
-                          text-[#386641] text-[10px] font-bold uppercase tracking-wider
-                          mb-5 shadow-natural
-                          ${mounted ? 'animate-reveal-up' : 'opacity-0'}`}
-            >
-              <Leaf className="w-3.5 h-3.5 flex-shrink-0" />
-              <span>A Green Beginning to a Better Tomorrow</span>
-            </div>
 
             {/* Headline — clamp scales from mobile → desktop smoothly */}
             <h1

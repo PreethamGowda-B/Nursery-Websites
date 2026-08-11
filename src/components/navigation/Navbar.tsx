@@ -27,8 +27,16 @@ export const Navbar: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
           ? 'bg-[#faf9f6]/95 backdrop-blur-md py-3 shadow-natural border-b border-emerald-900/10'
-          : 'bg-transparent py-5'
+          : 'py-5'
       }`}
+      style={
+        !isScrolled
+          ? {
+              background:
+                'linear-gradient(to bottom, rgba(240,237,230,0.96) 0%, rgba(240,237,230,0.85) 70%, transparent 100%)',
+            }
+          : undefined
+      }
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
